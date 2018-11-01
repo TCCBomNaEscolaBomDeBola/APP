@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Todos Voluntários
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="cor">
+  <ion-list class="cor">
+    <ion-item-sliding *ngFor="let voluntario of voluntarios;trackBy:voluntario?.id">
+      <button ion-item (click)="selecionar(voluntario)">
+        <h1> {{ voluntario.Nome }}</h1>
+        <h3> {{ voluntario.Email }}</h3>
+        <h3> {{ voluntario.Telefone }}</h3>
+      </button>
+      <ion-item-options side="left" class="cor">
+        <button ion-button color="danger" (click)="deletarVoluntario(voluntario)">
+          <ion-icon name="trash"></ion-icon>Deletar</button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab right bottom>
+    <button ion-fab color="primary" (click)="adicionarVoluntario()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
+<ion-footer>
+  <p>
+    <b>Desenvolvedoras:</b> Ana Lucia, Caroline e Luziane</p>
+</ion-footer>
